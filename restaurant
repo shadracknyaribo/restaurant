@@ -1,5 +1,4 @@
-
-var currentTab = <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 
@@ -37,6 +36,12 @@ var currentTab = <!DOCTYPE html>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  
+  
+  
+  
+<body>
   <style>
 * {
   box-sizing: border-box;
@@ -116,8 +121,10 @@ button:hover {
   background-color: #4CAF50;
 }
 </style>
-</head>
-<body>
+
+
+
+
 <form id="regForm" action="/action_page.php">
   <h1>Questionnaire:</h1>
   <!-- One "tab" for each step in the form: -->
@@ -156,10 +163,16 @@ button:hover {
     <span class="step"></span>
     <span class="step"></span>
   </div>
+  <div class="popup" onclick="myFunction()">Submit
+  <span class="popuptext" id="myPopup">
   <div class="response">
   <p>your response had been recorded thank you for your honesty</p>
   </div>
-</form>
+  </span>
+  
+  
+  
+  
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
@@ -233,7 +246,23 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+
 </script>
+
+
+
+
+
+
+
+
+
+
 <style>
 * {box-sizing:border-box}
 body {font-family: Verdana,sans-serif;}
@@ -304,6 +333,9 @@ body {font-family: Verdana,sans-serif;}
   .text {font-size: 11px}
 }
 </style>
+<body style="text-align:center">
+</form>
+
 
 
 <div class="slideshow-container">
@@ -335,6 +367,9 @@ body {font-family: Verdana,sans-serif;}
   <span class="dot"></span> 
 </div>
 
+
+
+
 <script>
 var slideIndex = 0;
 showSlides();
@@ -356,6 +391,11 @@ function showSlides() {
     setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
 </script>
+
+
+
+
+
 <style>
 body {
  margin: 0;
