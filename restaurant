@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<div class="jumbotron"><h2>RESTAURANT</h2>
+<div class="jumbotron"><h2 style= "font-family: 'Indie Flower', cursive;">RESTAURANT</h2>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -17,14 +17,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </ul>
-        </li>
         <li><a href="#"></a></li>
         <li><a href="#"></a></li>
       </ul>
@@ -36,13 +28,89 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   
   
   
   
+  
+  
+  
+  
+  
+  
 <body>
+
+<div class="container">
+  <h2></h2>  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="restaurant-view.jpg" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="2Q==.jpeg" style="width:100%;">
+      </div>
+    
+      <div class="item">
+        <img src="images3.jpeg" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+
   <style>
+  #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
 * {
   box-sizing: border-box;
 }
@@ -125,6 +193,7 @@ button:hover {
 
 
 
+
 <form id="regForm" action="/action_page.php">
   <h1>Questionnaire:</h1>
   <!-- One "tab" for each step in the form: -->
@@ -150,6 +219,29 @@ button:hover {
     <p><input placeholder="Would you return to this restaurant (reason)..." oninput="this.className = ''"></p>
     <p><input placeholder="How likely are you to recommend this resaturant to a friend/family..." oninput="this.className = ''"></p>
     </div>
+    <form action="">
+
+     <input class="star star-5" id="star-5" type="radio" name="star"/>
+
+     <label class="star star-5" for="star-5"></label>
+
+     <input class="star star-4" id="star-4" type="radio" name="star"/>
+
+     <label class="star star-4" for="star-4"></label>
+
+     <input class="star star-3" id="star-3" type="radio" name="star"/>
+
+     <label class="star star-3" for="star-3"></label>
+
+     <input class="star star-2" id="star-2" type="radio" name="star"/>
+
+     <label class="star star-2" for="star-2"></label>
+
+     <input class="star star-1" id="star-1" type="radio" name="star"/>
+
+     <label class="star star-1" for="star-1"></label>
+
+   </form>
   <div style="overflow:auto;">
     <div style="float:right;">
       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -163,17 +255,29 @@ button:hover {
     <span class="step"></span>
     <span class="step"></span>
   </div>
-  <div class="popup" onclick="myFunction()">Submit
-  <span class="popuptext" id="myPopup">
-  <div class="response">
-  <p>your response had been recorded thank you for your honesty</p>
-  </div>
-  </span>
+  <div id="overlay" onclick="off()">
+  <div id="text"><h2>your response has been recorded thank you for your honesty</h2></div>
+</div>
+
+<div style="padding:20px">
+  
+  <button onclick="on()">Submit</button>
+</div>
+  
+  
+  
   
   
   
   
 <script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
@@ -263,134 +367,18 @@ function myFunction() {
 
 
 
-<style>
-* {box-sizing:border-box}
-body {font-family: Verdana,sans-serif;}
-.mySlides {display:none}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
-</style>
-<body style="text-align:center">
-</form>
-
-
-
-<div class="slideshow-container">
-
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="images.jpeg" style="width:100%">
-  <div class="text">Enjoy the Pattio</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="index.jpeg" style="width:100%">
-  <div class="text">Savour The Environment</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="index2.jpeg" style="width:100%">
-  <div class="text">Love the Ambience</div>
-</div>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
 
 
 
 
-<script>
-var slideIndex = 0;
-showSlides();
 
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-</script>
+
+
+
+
+
+
+
 
 
 
